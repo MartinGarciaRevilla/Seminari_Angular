@@ -1,3 +1,5 @@
+Video Explicatiu del codi modificat:https://www.youtube.com/watch?v=LDX1zQqMRIg Referencies: codi grup angular y chatGPT
+
 # AngularSeminari6
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
