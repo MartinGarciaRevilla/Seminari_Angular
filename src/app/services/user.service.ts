@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = "http://localhost:9000/api/Users";
+  private apiUrl = "http://localhost:9000/api/users";
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.apiUrl);
@@ -19,5 +19,9 @@ export class UserService {
   //No s'utilitza però es pot fer servir per obtenir un usuari en concret a partir de la seva id
   getUser(id: number): Observable<User>{
     return this.http.get<User>(this.apiUrl+"/"+id);
+  }
+  //Afegeix un nou usuari a la base de dades
+  addUser(user: User): Observable<User>{
+    return this.http.post<User>(this.apiUrl, user);
   }
 }

@@ -1,0 +1,30 @@
+<form [formGroup]="formularioRegister" (ngSubmit)="register()" class="form-container">
+  <h2>Registro de Usuario</h2>
+
+  <!-- Campo para el nombre -->
+  <label for="name">Nombre</label>
+  <input id="name" formControlName="name" type="text" placeholder="Ingresa tu nombre" />
+  <small *ngIf="formularioRegister.get('name')?.touched && formularioRegister.get('name')?.invalid">
+    <span *ngIf="formularioRegister.get('name')?.errors?.['required']">El nombre es obligatorio</span>
+    <span *ngIf="formularioRegister.get('name')?.errors?.['minlength']">Debe tener al menos 3 caracteres</span>
+  </small>
+
+  <!-- Campo para el correo -->
+  <label for="email">Correo</label>
+  <input id="email" formControlName="email" type="email" placeholder="Ingresa tu correo" />
+  <small *ngIf="formularioRegister.get('email')?.touched && formularioRegister.get('email')?.invalid">
+    <span *ngIf="formularioRegister.get('email')?.errors?.['required']">El correo es obligatorio</span>
+    <span *ngIf="formularioRegister.get('email')?.errors?.['email']">Correo no válido</span>
+  </small>
+
+  <!-- Campo para la edad -->
+  <label for="age">Edad</label>
+  <input id="age" formControlName="age" type="number" placeholder="Ingresa tu edad" />
+  <small *ngIf="formularioRegister.get('age')?.touched && formularioRegister.get('age')?.invalid">
+    <span *ngIf="formularioRegister.get('age')?.errors?.['required']">La edad es obligatoria</span>
+    <span *ngIf="formularioRegister.get('age')?.errors?.['min']">Debe ser mayor o igual a 18</span>
+  </small>
+
+  <!-- Botón de registro -->
+  <button type="submit" class="btn-submit">Registrarse</button>
+</form>
